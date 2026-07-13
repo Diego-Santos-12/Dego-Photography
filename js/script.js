@@ -150,16 +150,63 @@ window.addEventListener('scroll', () => {
 });
 scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-// Testimonial nav (single testimonial in this build — arrows are decorative no-ops)
+// Testimonial slider — cycles through several real client testimonials
 const testiPrev = document.getElementById('testiPrev');
 const testiNext = document.getElementById('testiNext');
-if (testiPrev && testiNext) {
-  const card = document.querySelector('.testimonial-card');
-  function pulse() {
-    card.style.transition = 'opacity 0.2s ease';
-    card.style.opacity = '0.4';
-    setTimeout(() => { card.style.opacity = '1'; }, 200);
+const testimonialSlider = document.getElementById('testimonialSlider');
+if (testiPrev && testiNext && testimonialSlider) {
+  const testimonials = [
+    {
+      photo: 'assets/img/WcHSrXrakxufW1oRI0RtcvKpfA8.jpg',
+      grayscale: false,
+      quote: 'From the first conversation to the final gallery, everything felt effortless and intentional. The photos captured emotions we’ll remember forever.',
+      avatar: 'assets/img/d4PUdW6Q9ehUsBXmsMcchcFIAV0.jpg',
+      name: 'Emma & Daniel',
+      role: 'Wedding Session'
+    },
+    {
+      photo: 'assets/img/xAWIWUGB4M81SVvszdjixMwS9g.jpg',
+      grayscale: true,
+      quote: 'The entire experience was calm, professional, and incredibly well directed. Every frame felt natural and timeless.',
+      avatar: 'assets/img/xTxolJSoMHO9oJNhmRkIhv3qerU.jpg',
+      name: 'Sophia Laurent',
+      role: 'Portrait Session'
+    },
+    {
+      photo: 'assets/img/1eVCUZr4LzoWomKoDPSx7ypxZo.jpg',
+      grayscale: false,
+      quote: 'Working with them felt like catching up with old friends. Our family photos are full of warmth and real laughter.',
+      avatar: 'assets/img/Y5SHy9QBVbDYdcITKMKpB62GA.jpg',
+      name: 'The Durand Family',
+      role: 'Family Session'
+    }
+  ];
+  let testiIndex = 0;
+  const photoEl = document.getElementById('testimonialPhoto');
+  const quoteEl = document.getElementById('testimonialQuote');
+  const avatarEl = document.getElementById('testimonialAvatar');
+  const nameEl = document.getElementById('testimonialName');
+  const roleEl = document.getElementById('testimonialRole');
+
+  function renderTestimonial(index) {
+    const t = testimonials[index];
+    [photoEl, quoteEl, avatarEl].forEach(el => el.style.opacity = '0');
+    setTimeout(() => {
+      photoEl.src = t.photo;
+      photoEl.style.filter = t.grayscale ? 'grayscale(1)' : 'none';
+      quoteEl.textContent = t.quote;
+      avatarEl.src = t.avatar;
+      nameEl.textContent = t.name;
+      roleEl.textContent = t.role;
+      [photoEl, quoteEl, avatarEl].forEach(el => el.style.opacity = '1');
+    }, 250);
   }
-  testiPrev.addEventListener('click', pulse);
-  testiNext.addEventListener('click', pulse);
+  testiPrev.addEventListener('click', () => {
+    testiIndex = (testiIndex - 1 + testimonials.length) % testimonials.length;
+    renderTestimonial(testiIndex);
+  });
+  testiNext.addEventListener('click', () => {
+    testiIndex = (testiIndex + 1) % testimonials.length;
+    renderTestimonial(testiIndex);
+  });
 }
