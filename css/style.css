@@ -309,20 +309,20 @@ section { position: relative; padding: 120px 0; }
 /* ---------- Pricing ---------- */
 .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .price-card { border: 1px solid var(--text-10); border-radius: var(--card-radius); padding: 36px 30px; background: #161616; display: flex; flex-direction: column; }
-.price-card.featured { background: var(--accent); border-color: var(--accent); }
+.price-card.featured { border: 2px solid var(--accent); }
 .price-card h3 { font-size: 24px; font-weight: 500; margin-bottom: 10px; }
 .price-desc { color: var(--text-60); font-size: 14px; line-height: 1.6; min-height: 62px; }
-.price-card.featured .price-desc, .price-card.featured .included-label, .price-card.featured li { color: rgba(255,255,255,0.85); }
-.price-tag { display: flex; align-items: baseline; gap: 8px; margin: 26px 0 22px; }
+.price-rule { display: block; height: 1px; background: var(--text-10); margin-top: 22px; }
+.price-tag { display: flex; align-items: baseline; gap: 8px; margin: 22px 0 22px; }
 .price-tag .from { font-size: 13px; color: var(--text-40); }
 .price-tag .amount { font-size: 36px; font-weight: 500; }
 .included-label { font-size: 13px; color: var(--text-40); margin-bottom: 16px; }
 .price-card ul { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; flex: 1; }
 .price-card li { font-size: 14px; color: var(--text-80); padding-left: 22px; position: relative; }
 .price-card li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); }
-.price-card.featured li::before { color: #fff; }
 .price-card .btn { width: 100%; }
-.price-card.featured .btn-outline { border-color: rgba(255,255,255,0.5); }
+.btn-white { background: #ffffff; color: #121212; }
+.btn-white:hover { background: #ffffff; opacity: 0.9; }
 .pricing-badges { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 56px; border-top: 1px solid var(--text-10); padding-top: 40px; }
 .badge h4 { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
 .badge p { color: var(--text-60); font-size: 14px; }
