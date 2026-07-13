@@ -19,6 +19,13 @@ while ($listener.IsListening) {
   if ($path -eq "/") { $path = "/index.html" }
   $filePath = Join-Path $root ($path.TrimStart("/"))
 
+  if (Test-Path $filePath -PathType Container) {
+    $filePath = Join-Path $filePath "index.html"
+  } elseif (-not (Test-Path $filePath -PathType Leaf)) {
+    $indexFallback = Join-Path $filePath "index.html"
+    if (Test-Path $indexFallback -PathType Leaf) { $filePath = $indexFallback }
+  }
+
   if (Test-Path $filePath -PathType Leaf) {
     $ext = [System.IO.Path]::GetExtension($filePath)
     $ct = $mime[$ext]

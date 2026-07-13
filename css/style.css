@@ -392,3 +392,30 @@ section { position: relative; padding: 120px 0; }
   }
   body.nav-open .main-nav a { padding: 12px 6px; border-bottom: 1px solid var(--text-10); }
 }
+
+/* ---------- Project detail page ---------- */
+.back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-60); margin-top: 140px; transition: color 0.25s ease; }
+.back-link:hover { color: var(--text); }
+.project-hero-head { margin-top: 28px; }
+.project-hero-head h1 { font-size: clamp(34px, 5vw, 64px); font-weight: 500; letter-spacing: -0.02em; margin: 16px 0 18px; max-width: 800px; }
+.project-meta { display: flex; gap: 8px; font-size: 14px; color: var(--text-40); }
+.project-meta span:first-child::after { content: "—"; margin-left: 8px; }
+.project-hero-img { margin-top: 44px; }
+.project-hero-img img { width: 100%; max-height: 640px; object-fit: cover; }
+.project-body { padding-top: 64px; }
+.project-body-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 60px; padding-bottom: 64px; border-bottom: 1px solid var(--text-10); }
+.project-desc { font-size: 19px; line-height: 1.75; color: var(--text-80); max-width: 620px; }
+.project-info-box { display: flex; flex-direction: column; gap: 22px; }
+.project-info-box div { display: flex; flex-direction: column; gap: 4px; padding-bottom: 18px; border-bottom: 1px solid var(--text-10); }
+.project-info-box div:last-child { border-bottom: none; padding-bottom: 0; }
+.project-info-box span { font-size: 12px; color: var(--text-40); text-transform: uppercase; letter-spacing: 0.05em; }
+.project-info-box strong { font-size: 16px; font-weight: 500; }
+.project-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 64px; }
+.project-gallery img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: var(--img-radius); }
+.project-cta { text-align: center; }
+.project-cta h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 500; margin-bottom: 28px; }
+@media (max-width: 800px) {
+  .project-body-grid { grid-template-columns: 1fr; }
+  .project-gallery { grid-template-columns: 1fr 1fr; }
+  .back-link { margin-top: 110px; }
+}
