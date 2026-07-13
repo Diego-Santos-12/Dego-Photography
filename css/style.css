@@ -288,10 +288,10 @@ section { position: relative; padding: 120px 0; }
 .arrow { width: 42px; height: 42px; border: 1px solid var(--text-20); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; transition: border-color 0.25s ease, background 0.25s ease; }
 .arrow:hover { border-color: var(--text); background: var(--text-10); }
 
-.testimonial-slider { display: flex; border: 1px solid var(--text-10); border-radius: var(--card-radius); overflow: hidden; background: #161616; }
-.testimonial-photo { flex: 0 0 42%; }
-.testimonial-photo img { width: 100%; height: 100%; min-height: 400px; object-fit: cover; transition: opacity 0.35s ease; }
-.testimonial-content { flex: 1; padding: 48px; display: flex; flex-direction: column; }
+.testimonial-slider { display: flex; height: 460px; border: 1px solid var(--text-10); border-radius: var(--card-radius); overflow: hidden; background: #161616; }
+.testimonial-photo { flex: 0 0 42%; height: 100%; }
+.testimonial-photo img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.35s ease; }
+.testimonial-content { flex: 1; padding: 48px; display: flex; flex-direction: column; overflow: hidden; }
 .quote-icon { font-size: 52px; color: var(--accent); font-family: Georgia, serif; line-height: 1; margin-bottom: 8px; }
 .testimonial-quote { font-size: 23px; font-weight: 500; line-height: 1.5; margin-bottom: auto; transition: opacity 0.3s ease; }
 .testimonial-stars { color: var(--accent); font-size: 15px; letter-spacing: 3px; text-align: right; margin: 28px 0 22px; }
@@ -301,9 +301,9 @@ section { position: relative; padding: 120px 0; }
 .testimonial-footer .role { font-size: 13px; color: var(--text-60); }
 .testimonial-nav-inline { display: flex; gap: 10px; margin-left: auto; }
 @media (max-width: 800px) {
-  .testimonial-slider { flex-direction: column; }
-  .testimonial-photo img { min-height: 260px; }
-  .testimonial-content { padding: 32px; }
+  .testimonial-slider { flex-direction: column; height: auto; }
+  .testimonial-photo { height: 260px; }
+  .testimonial-content { padding: 32px; overflow: visible; }
 }
 
 /* ---------- Pricing ---------- */
