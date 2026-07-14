@@ -4,11 +4,11 @@ const sliceCarousel = document.getElementById('sliceCarousel');
 if (sliceCarousel) {
   const slices = [...sliceCarousel.querySelectorAll('.slice')];
   const images = [
-    'assets/img/w5Uw2FzDSySzNFv7n3SmA3SVnIo.jpg',
-    'assets/img/c4Xb8oFpr9WS9xFtTILs72vQw.jpg',
-    'assets/img/nkmenApuy0fo8Lc20jZZ64h3xIM.jpg',
-    'assets/img/Y5SHy9QBVbDYdcITKMKpB62GA.jpg',
-    'assets/img/Qt3lN9g1wQe3nKPJWaUpo3TNfOQ.jpg'
+    'assets/img/carousel-1.jpg',
+    'assets/img/carousel-2.jpg',
+    'assets/img/carousel-3.jpg',
+    'assets/img/carousel-4.jpg',
+    'assets/img/carousel-5.jpg'
   ];
   let current = 0;
   let animating = false;
@@ -132,26 +132,26 @@ if (testiPrev && testiNext && testimonialSlider) {
     {
       photo: 'assets/img/WcHSrXrakxufW1oRI0RtcvKpfA8.jpg',
       grayscale: false,
-      quote: 'From the first conversation to the final gallery, everything felt effortless and intentional. The photos captured emotions we’ll remember forever.',
+      quote: 'Desde la primera conversación hasta la galería final, todo se sintió fácil e intencional. Las fotos capturaron emociones que recordaremos para siempre.',
       avatar: 'assets/img/d4PUdW6Q9ehUsBXmsMcchcFIAV0.jpg',
       name: 'Emma & Daniel',
-      role: 'Wedding Session'
+      role: 'Sesión de Boda'
     },
     {
       photo: 'assets/img/xAWIWUGB4M81SVvszdjixMwS9g.jpg',
       grayscale: true,
-      quote: 'The entire experience was calm, professional, and incredibly well directed. Every frame felt natural and timeless.',
+      quote: 'Toda la experiencia fue tranquila, profesional e increíblemente bien dirigida. Cada foto se sintió natural y atemporal.',
       avatar: 'assets/img/xTxolJSoMHO9oJNhmRkIhv3qerU.jpg',
       name: 'Sophia Laurent',
-      role: 'Portrait Session'
+      role: 'Sesión de Retrato'
     },
     {
       photo: 'assets/img/1eVCUZr4LzoWomKoDPSx7ypxZo.jpg',
       grayscale: false,
-      quote: 'Working with them felt like catching up with old friends. Our family photos are full of warmth and real laughter.',
+      quote: 'Trabajar con ellos se sintió como reencontrarnos con viejos amigos. Nuestras fotos familiares están llenas de calidez y risas genuinas.',
       avatar: 'assets/img/Y5SHy9QBVbDYdcITKMKpB62GA.jpg',
-      name: 'The Durand Family',
-      role: 'Family Session'
+      name: 'Familia Durand',
+      role: 'Sesión Familiar'
     }
   ];
   let testiIndex = 0;
