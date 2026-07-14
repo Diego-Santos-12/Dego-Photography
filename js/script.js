@@ -130,28 +130,34 @@ const testimonialSlider = document.getElementById('testimonialSlider');
 if (testiPrev && testiNext && testimonialSlider) {
   const testimonials = [
     {
-      photo: 'assets/img/WcHSrXrakxufW1oRI0RtcvKpfA8.jpg',
+      photo: 'assets/img/testimonial-wedding.jpg',
+      framing: 'center 33%',
       grayscale: false,
-      quote: 'Desde la primera conversación hasta la galería final, todo se sintió fácil e intencional. Las fotos capturaron emociones que recordaremos para siempre.',
-      avatar: 'assets/img/d4PUdW6Q9ehUsBXmsMcchcFIAV0.jpg',
-      name: 'Emma & Daniel',
+      quote: 'No tenemos palabras para agradecerles. Nos hicieron sentir súper cómodos y capturaron cada momento de una forma increíble. Cada vez que vemos las fotos, volvemos a vivir ese día.',
+      avatar: 'assets/img/testimonial-wedding.jpg',
+      avatarFraming: 'center 33%',
+      name: 'Sofía & Alejandro',
       role: 'Sesión de Boda'
     },
     {
-      photo: 'assets/img/xAWIWUGB4M81SVvszdjixMwS9g.jpg',
-      grayscale: true,
-      quote: 'Toda la experiencia fue tranquila, profesional e increíblemente bien dirigida. Cada foto se sintió natural y atemporal.',
-      avatar: 'assets/img/xTxolJSoMHO9oJNhmRkIhv3qerU.jpg',
-      name: 'Sophia Laurent',
-      role: 'Sesión de Retrato'
+      photo: 'assets/img/testimonial-xv.avif',
+      framing: 'center 76%',
+      grayscale: false,
+      quote: 'Quedamos encantados con el resultado. Mi hija disfrutó muchísimo la sesión y las fotos quedaron hermosas. Sin duda, un recuerdo que vamos a atesorar para siempre.',
+      avatar: 'assets/img/testimonial-xv.avif',
+      avatarFraming: 'center 76%',
+      name: 'Laura G. (Mamá de Valeria)',
+      role: 'Sesión de XV Años'
     },
     {
-      photo: 'assets/img/1eVCUZr4LzoWomKoDPSx7ypxZo.jpg',
+      photo: 'assets/img/testimonial-graduacion.jpg',
+      framing: 'center 25%',
       grayscale: false,
-      quote: 'Trabajar con ellos se sintió como reencontrarnos con viejos amigos. Nuestras fotos familiares están llenas de calidez y risas genuinas.',
-      avatar: 'assets/img/Y5SHy9QBVbDYdcITKMKpB62GA.jpg',
-      name: 'Familia Durand',
-      role: 'Sesión Familiar'
+      quote: 'Las fotos quedaron increíbles y capturaron los mejores momentos con nuestros amigos y familia. Además, hicieron que todo fuera muy natural. ¡Los volveríamos a contratar sin pensarlo!',
+      avatar: 'assets/img/testimonial-graduacion.jpg',
+      avatarFraming: 'center 25%',
+      name: 'Andrea M., Ignacio Zaragoza',
+      role: 'Sesión de Graduación'
     }
   ];
   let testiIndex = 0;
@@ -167,8 +173,10 @@ if (testiPrev && testiNext && testimonialSlider) {
     setTimeout(() => {
       photoEl.src = t.photo;
       photoEl.style.filter = t.grayscale ? 'grayscale(1)' : 'none';
+      photoEl.style.objectPosition = t.framing || '50% 50%';
       quoteEl.textContent = t.quote;
       avatarEl.src = t.avatar;
+      avatarEl.style.objectPosition = t.avatarFraming || '50% 50%';
       nameEl.textContent = t.name;
       roleEl.textContent = t.role;
       [photoEl, quoteEl, avatarEl].forEach(el => el.style.opacity = '1');
@@ -181,5 +189,79 @@ if (testiPrev && testiNext && testimonialSlider) {
   testiNext.addEventListener('click', () => {
     testiIndex = (testiIndex + 1) % testimonials.length;
     renderTestimonial(testiIndex);
+  });
+}
+
+// Portfolio lightbox — used on service landing pages; supports several independent galleries per page
+const masonryGrids = document.querySelectorAll('.masonry-grid');
+if (masonryGrids.length) {
+  const lightbox = document.createElement('div');
+  lightbox.className = 'lightbox';
+  lightbox.innerHTML = `
+    <button class="lightbox-close" aria-label="Cerrar">&times;</button>
+    <button class="lightbox-prev" aria-label="Anterior">&#8592;</button>
+    <img src="" alt="">
+    <button class="lightbox-next" aria-label="Siguiente">&#8594;</button>
+  `;
+  document.body.appendChild(lightbox);
+  const lbImg = lightbox.querySelector('img');
+  let activeGallery = [];
+  let lbIndex = 0;
+  function openLightbox(gallery, i) {
+    activeGallery = gallery;
+    lbIndex = i;
+    lbImg.src = activeGallery[i].src;
+    lbImg.alt = activeGallery[i].alt;
+    lightbox.classList.add('open');
+  }
+  function closeLightbox() { lightbox.classList.remove('open'); }
+  function showDelta(delta) {
+    lbIndex = (lbIndex + delta + activeGallery.length) % activeGallery.length;
+    lbImg.src = activeGallery[lbIndex].src;
+    lbImg.alt = activeGallery[lbIndex].alt;
+  }
+  masonryGrids.forEach(grid => {
+    const gallery = [...grid.querySelectorAll('img')];
+    gallery.forEach((img, i) => img.addEventListener('click', () => openLightbox(gallery, i)));
+  });
+  lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+  lightbox.querySelector('.lightbox-prev').addEventListener('click', () => showDelta(-1));
+  lightbox.querySelector('.lightbox-next').addEventListener('click', () => showDelta(1));
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showDelta(-1);
+    if (e.key === 'ArrowRight') showDelta(1);
+  });
+}
+
+// Quote form — assembles a WhatsApp message from the captured fields
+const quoteForm = document.getElementById('quoteForm');
+if (quoteForm) {
+  const quoteParams = new URLSearchParams(window.location.search);
+  const serviceParam = quoteParams.get('servicio');
+  const serviceSelect = document.getElementById('quoteService');
+  if (serviceParam && serviceSelect) {
+    const match = [...serviceSelect.options].find(o => o.value === serviceParam);
+    if (match) serviceSelect.value = serviceParam;
+  }
+  quoteForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(quoteForm).entries());
+    const lines = [
+      'Hola, me gustaría solicitar una cotización:',
+      `Nombre: ${data.nombre || '-'}`,
+      `Correo: ${data.correo || '-'}`,
+      `WhatsApp: ${data.whatsapp || '-'}`,
+      `Tipo de evento: ${data.servicio || '-'}`,
+      `Fecha del evento: ${data.fecha || '-'}`,
+      `Ciudad: ${data.ciudad || '-'}`,
+      `Lugar: ${data.lugar || '-'}`,
+      `Presupuesto aproximado: ${data.presupuesto || '-'}`,
+      `Mensaje: ${data.mensaje || '-'}`
+    ];
+    const text = encodeURIComponent(lines.join('\n'));
+    window.open(`https://wa.me/528443597656?text=${text}`, '_blank');
   });
 }

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solicita tu Cotización | DEGO Photography</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="nav-pill">
+    <a href="/#hero" class="logo">
+      <img src="/assets/img/dego-icon.png" alt="DEGO Photography">
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="/#hero">Inicio</a>
+      <a href="/#about">Nosotros</a>
+      <a href="/projects/">Proyectos</a>
+      <a href="/#services">Servicios</a>
+      <a href="/#contact">Contacto</a>
+    </nav>
+    <a href="https://wa.me/528443597656?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noopener" class="btn btn-primary nav-cta">
+      <span class="btn-label"><span>WhatsApp <span class="arrow-ico">&#8599;</span></span><span>WhatsApp <span class="arrow-ico">&#8599;</span></span></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section style="padding-top: 160px; padding-bottom: 100px;">
+    <div class="container">
+      <p class="breadcrumb" style="margin-top: 0;"><a href="/#services">Servicios</a><span>/</span><span class="current">Cotización</span></p>
+      <div class="section-head" style="margin-top: 28px;">
+        <p class="eyebrow">Cotización</p>
+        <h1 class="section-title" style="font-size: clamp(34px, 5vw, 64px);">Solicita tu Cotización.</h1>
+        <p class="section-sub">Cuéntanos sobre tu evento y en breve te contactaremos por WhatsApp con toda la información que necesitas.</p>
+      </div>
+
+      <form class="quote-form" id="quoteForm">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+          </div>
+          <div class="form-field">
+            <label for="correo">Correo</label>
+            <input type="email" id="correo" name="correo" placeholder="tucorreo@ejemplo.com" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="whatsapp">WhatsApp</label>
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej. 844 123 4567" required>
+          </div>
+          <div class="form-field">
+            <label for="fecha">Fecha del Evento</label>
+            <input type="date" id="fecha" name="fecha">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="ciudad">Ciudad</label>
+            <input type="text" id="ciudad" name="ciudad" placeholder="Ej. Saltillo, Coahuila">
+          </div>
+          <div class="form-field">
+            <label for="quoteService">Tipo de Evento</label>
+            <select id="quoteService" name="servicio">
+              <option value="">Selecciona un servicio</option>
+              <option value="Bodas">Bodas</option>
+              <option value="Eventos Sociales">Eventos Sociales</option>
+              <option value="XV Años">XV Años</option>
+              <option value="Books">Books</option>
+              <option value="Fotografía Comercial">Fotografía Comercial</option>
+              <option value="Eventos Especiales">Eventos Especiales</option>
+              <option value="Deportes">Deportes</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="lugar">Lugar del Evento</label>
+            <input type="text" id="lugar" name="lugar" placeholder="Ej. Salón Los Encinos">
+          </div>
+          <div class="form-field">
+            <label for="presupuesto">Presupuesto Aproximado</label>
+            <select id="presupuesto" name="presupuesto">
+              <option value="">Selecciona un rango</option>
+              <option value="Menos de $10,000 MXN">Menos de $10,000 MXN</option>
+              <option value="$10,000 - $20,000 MXN">$10,000 - $20,000 MXN</option>
+              <option value="$20,000 - $40,000 MXN">$20,000 - $40,000 MXN</option>
+              <option value="Más de $40,000 MXN">Más de $40,000 MXN</option>
+              <option value="Aún no lo sé">Aún no lo sé</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos más sobre tu evento o lo que tienes en mente..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary"><span class="btn-label"><span>Enviar Solicitud</span><span>Enviar Solicitud</span></span></button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="contact">
+  <div class="container">
+    <img class="footer-logo" src="/assets/img/dego-icon.png" alt="DEGO Photography">
+    <h2 class="footer-title">Tu Historia<br>Merece Fotografías<br>Inolvidables.</h2>
+    <p class="footer-sub">Más que tomar fotografías, documentamos emociones, personas y momentos que no volverán a repetirse.</p>
+    <a href="https://wa.me/528443597656?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noopener" class="btn btn-primary"><span class="btn-label"><span>WhatsApp</span><span>WhatsApp</span></span></a>
+
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h5>Páginas</h5>
+        <ul>
+          <li><a href="/#hero">Inicio</a></li>
+          <li><a href="/#about">Nosotros</a></li>
+          <li><a href="/projects/">Proyectos</a></li>
+          <li><a href="/#services">Servicios</a></li>
+          <li><a href="/#contact">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="/#faq">Preguntas Frecuentes</a></li>
+          <li><a href="#">Política de Privacidad</a></li>
+          <li><a href="#">Términos y Condiciones</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contacto</h5>
+        <ul>
+          <li><a href="mailto:degophotography.mx@gmail.com">degophotography.mx@gmail.com</a></li>
+        </ul>
+        <div class="social-row">
+          <a href="https://www.instagram.com/dego.photography_/" target="_blank" rel="noopener" aria-label="Instagram">Ig</a>
+          <a href="https://www.facebook.com/profile.php?id=100083076473366&amp;locale=es_LA" target="_blank" rel="noopener" aria-label="Facebook">Fb</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 DEGO Photography. Todos los derechos reservados.</p>
+      <p>Diseñado por DLS Ventures</p>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&uarr;</button>
+
+<script src="/js/script.js"></script>
+</body>
+</html>
