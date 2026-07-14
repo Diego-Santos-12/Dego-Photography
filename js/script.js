@@ -113,33 +113,6 @@ document.querySelectorAll('.faq-list').forEach(list => {
   }
 });
 
-// Before / after slider
-const slider = document.getElementById('baSlider');
-const afterWrap = document.getElementById('baAfterWrap');
-const handle = document.getElementById('baHandle');
-if (slider) {
-  const afterImg = afterWrap.querySelector('img');
-  function setPos(clientX) {
-    const rect = slider.getBoundingClientRect();
-    let pct = ((clientX - rect.left) / rect.width) * 100;
-    pct = Math.max(0, Math.min(100, pct));
-    afterWrap.style.width = pct + '%';
-    handle.style.left = pct + '%';
-    afterImg.style.width = rect.width + 'px';
-  }
-  function resizeAfterImg() {
-    const rect = slider.getBoundingClientRect();
-    afterImg.style.width = rect.width + 'px';
-  }
-  window.addEventListener('resize', resizeAfterImg);
-  resizeAfterImg();
-
-  let dragging = false;
-  slider.addEventListener('pointerdown', (e) => { dragging = true; setPos(e.clientX); });
-  window.addEventListener('pointermove', (e) => { if (dragging) setPos(e.clientX); });
-  window.addEventListener('pointerup', () => dragging = false);
-}
-
 // Header scroll state + scroll-to-top
 const header = document.getElementById('siteHeader');
 const scrollTopBtn = document.getElementById('scrollTop');
