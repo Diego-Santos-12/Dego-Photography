@@ -12,32 +12,41 @@ $mime = @{
 }
 
 while ($listener.IsListening) {
-  $context = $listener.GetContext()
-  $req = $context.Request
-  $res = $context.Response
-  $path = $req.Url.LocalPath
-  if ($path -eq "/") { $path = "/index.html" }
-  $filePath = Join-Path $root ($path.TrimStart("/"))
-
-  if (Test-Path $filePath -PathType Container) {
-    $filePath = Join-Path $filePath "index.html"
-  } elseif (-not (Test-Path $filePath -PathType Leaf)) {
-    $indexFallback = Join-Path $filePath "index.html"
-    if (Test-Path $indexFallback -PathType Leaf) { $filePath = $indexFallback }
+  try {
+    $context = $listener.GetContext()
+  } catch {
+    continue
   }
+  try {
+    $req = $context.Request
+    $res = $context.Response
+    $path = $req.Url.LocalPath
+    if ($path -eq "/") { $path = "/index.html" }
+    $filePath = Join-Path $root ($path.TrimStart("/"))
 
-  if (Test-Path $filePath -PathType Leaf) {
-    $ext = [System.IO.Path]::GetExtension($filePath)
-    $ct = $mime[$ext]
-    if (-not $ct) { $ct = "application/octet-stream" }
-    $bytes = [System.IO.File]::ReadAllBytes($filePath)
-    $res.ContentType = $ct
-    $res.ContentLength64 = $bytes.Length
-    $res.OutputStream.Write($bytes, 0, $bytes.Length)
-  } else {
-    $res.StatusCode = 404
-    $msg = [System.Text.Encoding]::UTF8.GetBytes("404 Not Found")
-    $res.OutputStream.Write($msg, 0, $msg.Length)
+    if (Test-Path $filePath -PathType Container) {
+      $filePath = Join-Path $filePath "index.html"
+    } elseif (-not (Test-Path $filePath -PathType Leaf)) {
+      $indexFallback = Join-Path $filePath "index.html"
+      if (Test-Path $indexFallback -PathType Leaf) { $filePath = $indexFallback }
+    }
+
+    if (Test-Path $filePath -PathType Leaf) {
+      $ext = [System.IO.Path]::GetExtension($filePath)
+      $ct = $mime[$ext]
+      if (-not $ct) { $ct = "application/octet-stream" }
+      $bytes = [System.IO.File]::ReadAllBytes($filePath)
+      $res.ContentType = $ct
+      $res.ContentLength64 = $bytes.Length
+      $res.OutputStream.Write($bytes, 0, $bytes.Length)
+    } else {
+      $res.StatusCode = 404
+      $msg = [System.Text.Encoding]::UTF8.GetBytes("404 Not Found")
+      $res.OutputStream.Write($msg, 0, $msg.Length)
+    }
+  } catch {
+    # Client disconnected mid-response or similar transient error — skip and keep serving.
+  } finally {
+    try { $context.Response.OutputStream.Close() } catch {}
   }
-  $res.OutputStream.Close()
 }

@@ -20,7 +20,6 @@
     <nav class="main-nav" id="mainNav">
       <a href="#hero">Inicio</a>
       <a href="#about">Nosotros</a>
-      <a href="projects/">Proyectos</a>
       <a href="#services">Servicios</a>
       <a href="#contact">Contacto</a>
     </nav>
@@ -46,7 +45,7 @@
           <a href="https://wa.me/528443597656?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noopener" class="btn btn-primary">
             <span class="btn-label"><span>WhatsApp</span><span>WhatsApp</span></span>
           </a>
-          <a href="projects/" class="btn btn-outline">
+          <a href="#services" class="btn btn-outline">
             <span class="btn-label"><span>Ver Trabajos</span><span>Ver Trabajos</span></span>
           </a>
         </div>
@@ -109,7 +108,7 @@
           <p class="about-text">En Dego Photography creemos que una fotografía es mucho más que una imagen: es la forma de volver a sentir un instante, recordar a las personas que estuvieron contigo y conservar historias que merecen trascender.</p>
           <p class="about-text soft">Porque cuando el momento termina, una gran fotografía es lo único que permanece.</p>
           <div class="about-actions">
-            <a href="projects/" class="text-link">Más Sobre Nosotros <span class="arrow-ico">&#8599;</span></a>
+            <a href="#services" class="text-link">Más Sobre Nosotros <span class="arrow-ico">&#8599;</span></a>
             <div class="social-row">
               <a href="https://www.instagram.com/dego.photography_/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor"/></svg></a>
               <a href="https://www.facebook.com/profile.php?id=100083076473366&amp;locale=es_LA" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 21v-7h2.5l.5-3H14V9c0-.9.3-1.5 1.6-1.5H17V4.8c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1V11H8v3h2.6v7H14z"/></svg></a>
@@ -128,7 +127,7 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- SERVICES / CATEGORIES -->
   <section class="services" id="services">
     <div class="container">
       <div class="section-head center reveal">
@@ -136,155 +135,85 @@
         <h2 class="section-title">Lo que hacemos.</h2>
         <p class="section-sub">Creamos fotografías que preservan emociones, cuentan historias y convierten momentos irrepetibles en recuerdos para toda la vida.</p>
       </div>
-      <div class="services-grid reveal">
-        <a href="/servicios/bodas/" class="service-card-link">
-        <div class="service-card">
-          <img src="assets/img/service-wedding.avif" alt="Bodas" style="object-position: center 25%;">
-          <div class="service-overlay">
-            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8.5" cy="15" r="5.5"/><circle cx="15.5" cy="15" r="5.5"/></svg>
+      <div class="category-list reveal">
+        <a href="/servicios/bodas/" class="category-card">
+          <div class="category-img"><img src="assets/img/service-wedding.avif" alt="Bodas" style="object-position: center 25%;"></div>
+          <div class="category-info">
             <h3>Bodas</h3>
+            <span class="category-rule"></span>
             <p>Historias de amor contadas con autenticidad, emoción y cada detalle que hace único tu gran día.</p>
             <div class="service-tags">
               <span>Cobertura Completa</span><span>Bodas de Destino</span><span>Narrativa Cinematográfica</span>
             </div>
           </div>
-        </div>
         </a>
-        <a href="/servicios/eventos-sociales/" class="service-card-link">
-        <div class="service-card">
-          <img src="assets/img/service-social.jpg" alt="Eventos Sociales" style="object-position: center 15%;">
-          <div class="service-overlay">
-            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="8" r="3"/><circle cx="16" cy="9" r="2.5"/><path d="M4 20c0-3 2.5-5 5-5s5 2 5 5M14 20c0-2 1.5-4 4-4s4.5 1.5 4.5 4"/></svg>
+        <a href="/servicios/eventos-sociales/" class="category-card">
+          <div class="category-img"><img src="assets/img/service-social.jpg" alt="Eventos Sociales" style="object-position: center 15%;"></div>
+          <div class="category-info">
             <h3>Eventos Sociales</h3>
+            <span class="category-rule"></span>
             <p>Capturamos los momentos más importantes de tu familia con un estilo elegante, natural y lleno de emoción.</p>
             <div class="service-tags">
               <span>Bautizos</span><span>Cumpleaños</span><span>Graduaciones</span>
             </div>
           </div>
-        </div>
         </a>
-        <a href="/servicios/xv-anos/" class="service-card-link">
-        <div class="service-card">
-          <img src="assets/img/service-xv.jpg" alt="XV Años">
-          <div class="service-overlay">
-            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h4"/></svg>
+        <a href="/servicios/xv-anos/" class="category-card">
+          <div class="category-img"><img src="assets/img/service-xv.jpg" alt="XV Años"></div>
+          <div class="category-info">
             <h3>XV Años</h3>
+            <span class="category-rule"></span>
             <p>Capturamos la ilusión, la elegancia y cada detalle de un día que solo se vive una vez.</p>
             <div class="service-tags">
               <span>Sesión Previa</span><span>Cobertura Completa</span><span>Editorial</span>
             </div>
           </div>
-        </div>
         </a>
-        <a href="/servicios/books/" class="service-card-link">
-        <div class="service-card">
-          <img src="assets/img/service-portrait.jpg" alt="Books" style="object-position: center 20%;">
-          <div class="service-overlay">
-            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6c-1.5-1.2-4-2-7-2v14c3 0 5.5.8 7 2 1.5-1.2 4-2 7-2V4c-3 0-5.5.8-7 2z"/><path d="M12 6v14"/></svg>
+        <a href="/servicios/books/" class="category-card">
+          <div class="category-img"><img src="assets/img/service-portrait.jpg" alt="Books" style="object-position: center 20%;"></div>
+          <div class="category-info">
             <h3>Books</h3>
+            <span class="category-rule"></span>
             <p>Retratos profesionales para modelos, artistas, emprendedores y marca personal con una estética moderna.</p>
             <div class="service-tags">
               <span>Marca Personal</span><span>Modelaje</span><span>Retrato Editorial</span>
             </div>
           </div>
-        </div>
         </a>
-        <a href="/servicios/fotografia-comercial/" class="service-card-link">
-        <div class="service-card">
-          <img src="assets/img/service-commercial.jpg" alt="Fotografía Comercial" style="object-position: center 30%;">
-          <div class="service-overlay">
-            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <a href="/servicios/fotografia-comercial/" class="category-card">
+          <div class="category-img"><img src="assets/img/service-commercial.jpg" alt="Fotografía Comercial" style="object-position: center 30%;"></div>
+          <div class="category-info">
             <h3>Fotografía Comercial</h3>
+            <span class="category-rule"></span>
             <p>Creamos imágenes que ayudan a vender productos, servicios y fortalecer la identidad visual de tu marca.</p>
             <div class="service-tags">
               <span>Producto</span><span>E-commerce</span><span>Corporativo</span>
             </div>
           </div>
-        </div>
         </a>
-        <a href="/servicios/eventos-especiales/" class="service-card-link">
-        <div class="service-card">
-          <img src="assets/img/carousel-4.jpg" alt="Eventos Especiales" style="object-position: center 80%;">
-          <div class="service-overlay">
-            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9" y="3" width="6" height="10" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4M9 21h6"/></svg>
+        <a href="/servicios/eventos-especiales/" class="category-card">
+          <div class="category-img"><img src="assets/img/carousel-4.jpg" alt="Eventos Especiales" style="object-position: center 80%;"></div>
+          <div class="category-info">
             <h3>Eventos Especiales</h3>
+            <span class="category-rule"></span>
             <p>Cobertura profesional para festivales, conciertos, eventos empresariales y experiencias únicas.</p>
             <div class="service-tags">
               <span>Festivales</span><span>Corporativos</span><span>Conciertos</span>
             </div>
           </div>
-        </div>
         </a>
-        <a href="/servicios/deportes/" class="service-card-link">
-        <div class="service-card service-card-wide">
-          <img src="assets/img/service-sports.jpg" alt="Deportes" style="object-position: center 30%;">
-          <div class="service-overlay">
-            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3h8v3a4 4 0 0 1-8 0V3z"/><path d="M4 4h4v2a3 3 0 0 1-4 3M20 4h-4v2a3 3 0 0 0 4 3"/><path d="M12 10v5M9 20h6M10 15h4l1 5H9l1-5z"/></svg>
+        <a href="/servicios/deportes/" class="category-card">
+          <div class="category-img"><img src="assets/img/service-sports.jpg" alt="Deportes" style="object-position: center 30%;"></div>
+          <div class="category-info">
             <h3>Deportes</h3>
+            <span class="category-rule"></span>
             <p>Cobertura fotográfica profesional que captura la energía, el esfuerzo y la emoción de cada evento deportivo.</p>
             <div class="service-tags">
               <span>Fotografía Deportiva</span><span>Eventos Deportivos</span><span>Cobertura de Torneos</span>
             </div>
           </div>
-        </div>
         </a>
       </div>
-    </div>
-  </section>
-
-  <!-- SELECTED WORK -->
-  <section class="work" id="work">
-    <div class="container">
-      <div class="section-head center reveal">
-        <p class="eyebrow-pill"><span class="dot"></span>Trabajos Seleccionados</p>
-        <h2 class="section-title">Fotos Que Se Quedan Contigo.</h2>
-        <p class="section-sub">En Dego Photography creemos que una fotografía tiene el poder de conservar emociones, personas y momentos que el tiempo no puede repetir.</p>
-      </div>
-      <div class="work-list reveal">
-        <a href="projects/the-durand-family/" class="work-card">
-          <div class="work-img"><img src="assets/img/xv-fernanda.jpg" alt="XV de Fernanda"></div>
-          <div class="work-info">
-            <span class="tag">XV Años</span>
-            <h3>XV de Fernanda</h3>
-            <span class="tag-rule"></span>
-            <p>Cada fotografía conserva un instante irrepetible. Juntas cuentan la historia de un día que quedará para siempre en la memoria de quienes lo vivieron.</p>
-            <div class="work-meta"><span>Saltillo, Coahuila</span></div>
-          </div>
-        </a>
-        <a href="projects/emma-laurent/" class="work-card">
-          <div class="work-img"><img src="assets/img/baptism-tadeo.jpg" alt="El Bautizo de Tadeo" style="object-position: center 40%;"></div>
-          <div class="work-info">
-            <span class="tag">Bautizo</span>
-            <h3>El Bautizo de Tadeo</h3>
-            <span class="tag-rule"></span>
-            <p>Un día lleno de fe, amor y la compañía de quienes hacen especial cada etapa de la vida.</p>
-            <div class="work-meta"><span>Saltillo, Coahuila</span></div>
-          </div>
-        </a>
-        <a href="projects/a-timeless-promise/" class="work-card">
-          <div class="work-img"><img src="assets/img/wedding-sofia-alejandro.jpg" alt="Sofía &amp; Alejandro"></div>
-          <div class="work-info">
-            <span class="tag">Boda</span>
-            <h3>Sofía &amp; Alejandro</h3>
-            <span class="tag-rule"></span>
-            <p>Una historia de amor contada a través de miradas, sonrisas y esos pequeños momentos que hicieron de este día algo inolvidable.</p>
-            <div class="work-meta"><span>Saltillo, Coahuila</span></div>
-          </div>
-        </a>
-        <a href="projects/into-the-wild/" class="work-card">
-          <div class="work-img"><img src="assets/img/festival-navideno.jpg" alt="Festival Navideño Art Class"></div>
-          <div class="work-info">
-            <span class="tag">Evento Especial</span>
-            <h3>Festival Navideño Art Class</h3>
-            <span class="tag-rule"></span>
-            <p>Una celebración llena de creatividad, talento y espíritu navideño, donde cada presentación, sonrisa y detalle fue capturado para conservar la magia de este día inolvidable.</p>
-            <div class="work-meta"><span>Saltillo, Coahuila</span></div>
-          </div>
-        </a>
-      </div>
-      <a href="projects/" class="btn btn-outline center reveal">
-        <span class="btn-label"><span>Ver Todos los Trabajos</span><span>Ver Todos los Trabajos</span></span>
-      </a>
     </div>
   </section>
 
@@ -412,7 +341,6 @@
         <ul>
           <li><a href="#hero">Inicio</a></li>
           <li><a href="#about">Nosotros</a></li>
-          <li><a href="projects/">Proyectos</a></li>
           <li><a href="#services">Servicios</a></li>
           <li><a href="#contact">Contacto</a></li>
         </ul>
