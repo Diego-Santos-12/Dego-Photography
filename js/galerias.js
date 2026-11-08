@@ -3,7 +3,8 @@
 // a cover and its photos as [path, width, height]. `date` is optional text, shown as written;
 // an event with no photos and no cover still shows its name and date.
 // An event with `url` is a private gallery hosted elsewhere: its card opens that address.
-const GALLERIES = [
+// What the admin panel publishes (/portafolio.js) replaces this list; the list stays as the fallback.
+const GALLERIES = window.PORTAFOLIO_PUBLICADO || [
   {
     id: "bodas",
     title: "Bodas",
@@ -190,7 +191,7 @@ const GALLERIES = [
         title: "Festival Class Dance Coco",
         date: "",
         cover: "",
-        url: "https://galeria-danza-dego.netlify.app",
+        url: "/entrar",
         photos: []
       }
     ]
@@ -243,7 +244,7 @@ const GALLERIES = [
       e.url
         ? card(e.url, e.cover, e.title, eventMeta(e, 'Galería privada <span class="arrow-ico">&#8599;</span>'))
         : card(`${categoryUrl(category)}&evento=${e.id}`, e.cover, e.title, eventMeta(e, e.photos.length ? plural(e.photos.length, 'foto') : 'Sin fotos publicadas'))).join('')}</div>
-      <a href="${category.servicePage}" class="gallery-back">Ver el servicio de ${esc(category.title)} <span class="arrow-ico">&#8599;</span></a>`;
+      ${category.servicePage ? `<a href="${category.servicePage}" class="gallery-back">Ver el servicio de ${esc(category.title)} <span class="arrow-ico">&#8599;</span></a>` : ''}`;
     document.title = `${category.title} | Galerías | DEGO Photography`;
   } else {
     body = `<div class="gallery-cards">${GALLERIES.map(c =>

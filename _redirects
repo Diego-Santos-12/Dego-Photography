@@ -1,0 +1,11 @@
+# Panel y galería privada: viven en otra app de Netlify, pero se ven bajo este dominio.
+# Si se agrega una ruta nueva a galeria-danza, hay que agregarla aquí.
+/entrar    https://galeria-danza-dego.netlify.app/entrar        200
+/galeria   https://galeria-danza-dego.netlify.app/galeria       200
+/acceso    https://galeria-danza-dego.netlify.app/acceso        200
+/admin     https://galeria-danza-dego.netlify.app/admin         200
+/admin/*   https://galeria-danza-dego.netlify.app/admin/:splat  200
+/api/*     https://galeria-danza-dego.netlify.app/api/:splat    200
+/_next/*   https://galeria-danza-dego.netlify.app/_next/:splat  200
+# Contenido publicado desde el panel. Falta la dirección del Worker: sin esta regla, Galerías usa la lista de js/galerias.js.
+# /portafolio.js  https://dego-publico.CUENTA.workers.dev/portafolio.js  200
