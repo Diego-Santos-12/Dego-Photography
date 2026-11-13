@@ -190,8 +190,8 @@ const GALLERIES = window.PORTAFOLIO_PUBLICADO || [
         id: "festival-class-dance-coco",
         title: "Festival Class Dance Coco",
         date: "",
-        cover: "",
-        url: "/entrar",
+        cover: "/assets/img/eventos-especiales/festival-coco-portada.jpg",
+        url: "/entrar?galeria=1",
         photos: []
       }
     ]
